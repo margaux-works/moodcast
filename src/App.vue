@@ -28,7 +28,7 @@ const updateMood = (mood) => {
     </h1>
 
     <Weather @updateWeather="updateWeather" />
-    <!-- Mood Section -->
+    <!-- Mood Selection Section  -->
     <div class="w-full max-w-3xl">
       <h2 class="text-2xl text-[#E3E8EF] text-center mb-6">
         How do you feel today?
