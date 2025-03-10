@@ -4,5 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   base: '/moodcast/',
+  build: {
+    outDir: 'dist',
+  },
   plugins: [vue(), tailwindcss()],
 });
