@@ -25,10 +25,13 @@ const updateMood = (mood) => {
 <template>
   <div class="min-h-screen flex flex-col items-center bg-gris text-white px-6">
     <!-- Main Title -->
-    <h1 class="text-4xl text-[#E3E8EF] mt-10 mb-12 font-[Poppins] text-center">
+    <h1 class="text-4xl text-[#E3E8EF] mt-10 mb-2 font-[Poppins] text-center">
       Your Personalized Activity Generator
     </h1>
-
+    <p class="text-gray-400 text-sm text-center mt-2 mb-12 italic">
+      Location access helps tailor your activity based on real-time weather.
+      Your privacy is respected!
+    </p>
     <Weather @updateWeather="updateWeather" />
     <!-- Mood Selection Section  -->
     <div class="w-full max-w-3xl">
