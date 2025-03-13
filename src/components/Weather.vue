@@ -31,7 +31,6 @@ onMounted(() => {
         if (!response.ok) throw new Error('Failed to fetch weather data');
         const data = await response.json();
 
-        weather.value = data;
         const weatherDescription = weather.value.weather[0].description;
         console.log('✅ Weather.vue - Weather Data Fetched:', weather.value);
         console.log(
@@ -40,16 +39,14 @@ onMounted(() => {
         );
 
         emit('updateWeather', weatherDescription); //  Emit to App.vue
-        console.log(
-          '✅ Weather.vue - Emitting weather data to App.vue:',
-          weatherDescription
-        );
       } catch (error) {
         console.error('❌ Weather.vue - Error fetching weather:', error);
+        emit('updateWeather', 'NO_WEATHER'); // Notify parent that weather is unavailable
       }
     },
     (err) => {
       console.error('❌ Weather.vue - Error getting geolocation:', err.message);
+      emit('updateWeather', 'NO_WEATHER'); // Notify parent that location access was denied
     }
   );
 });

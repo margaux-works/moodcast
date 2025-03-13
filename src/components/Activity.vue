@@ -11,7 +11,7 @@ const isLoading = ref(false);
 watch(
   [() => props.weather, () => props.mood],
   async ([newWeather, newMood]) => {
-    if (!newWeather || !newMood) return;
+    if (!newMood) return;
 
     isLoading.value = true; // Show loading animation
 
@@ -19,6 +19,9 @@ watch(
       try {
         const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
         const apiURL = 'https://api.openai.com/v1/chat/completions';
+        const weatherInfo = newWeather
+          ? `Based on the ${newWeather} weather`
+          : 'Without considering the weather';
         const response = await fetch(apiURL, {
           method: 'POST',
           headers: {
@@ -31,11 +34,11 @@ watch(
               {
                 role: 'system',
                 content:
-                  'You are a helpful assistant who suggests activities to do based on the weather and mood of the user. Activities should be original and specific and fit in one sentence.',
+                  'You are a helpful assistant who suggests activities to do based on the weather and mood of the user. If no weather data is available, suggest an activity based only on the mood. Activities should be one sentence long and funny. The tone you use should match the mood of the user.',
               },
               {
                 role: 'user',
-                content: `Based on the ${newWeather} weather and the ${newMood} user's mood, suggest an activity.`,
+                content: `${weatherInfo} and the ${newMood} user's mood, suggest an activity.`,
               },
             ],
             max_tokens: 100,

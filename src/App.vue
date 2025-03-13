@@ -10,8 +10,10 @@ const weather = ref('');
 console.log('⏳ App.vue - Initial Weather State:', weather.value);
 
 const updateWeather = (description) => {
-  weather.value = description;
-  console.log('✅ App.vue - Weather Updated:', weather.value);
+  weather.value = description === 'NO_WEATHER' ? '' : description;
+  console.log(
+    `✅ App.vue - Weather Updated: ${weather.value || 'No weather available'}`
+  );
 };
 
 const updateMood = (mood) => {
