@@ -34,11 +34,17 @@ watch(
               {
                 role: 'system',
                 content:
-                  'You are a helpful assistant who suggests activities to do based on the weather and mood of the user. If no weather data is available, suggest an activity based only on the mood. Activities should be one sentence long and funny. The tone you use should match the mood of the user.',
+                  "You are a creative and witty assistant who suggests activities based on the user's mood and the current weather. " +
+                  'Your responses should be a mix of useful, creative, and humorous ideas. ' +
+                  'Activities should be specific, not generic. ' +
+                  "Some activities should be practical and doable, while others can be whimsical and absurd—adjusting absurdity based on the user's mood. " +
+                  'The weather should be a light reference, not the main focus. ' +
+                  'Include both physical activities and cozy indoor activities. ' +
+                  'Keep responses one sentence long, but make them fun and engaging.',
               },
               {
                 role: 'user',
-                content: `${weatherInfo} and the ${newMood} user's mood, suggest an activity.`,
+                content: `${weatherInfo} and the ${newMood} user's mood, suggest a fun activity.`,
               },
             ],
             max_tokens: 100,
