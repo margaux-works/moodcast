@@ -31,11 +31,11 @@ onMounted(() => {
         if (!response.ok) throw new Error('Failed to fetch weather data');
         const data = await response.json();
 
-        const weatherDescription = weather.value.weather[0].description;
-        console.log('✅ Weather.vue - Weather Data Fetched:', weather.value);
+        const weatherDescription =
+          data.weather?.[0]?.description || 'NO_WEATHER';
         console.log(
-          '✅ Weather.vue - Weather Description:',
-          weather.value.weather[0].description
+          '✅ Weather.vue - Weather Data Fetched:',
+          weatherDescription
         );
 
         emit('updateWeather', weatherDescription); //  Emit to App.vue
