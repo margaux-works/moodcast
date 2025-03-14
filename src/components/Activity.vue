@@ -75,7 +75,7 @@ watch(
     </p>
 
     <!-- Dynamic Messages -->
-    <p v-if="!props.mood" class="text-gray-400 mt-4">
+    <p v-if="!props.mood" class="text-gray-400 mt-2">
       Select a mood and I will suggest an activity for you.
     </p>
 
@@ -110,9 +110,9 @@ watch(
 
     <!-- Decorative Separator -->
     <div
-      class="border-t border-gray-700 mt-6 mx-auto w-2/3 flex items-center justify-center"
+      class="border-t border-gray-700 mt-12 mx-auto w-2/3 flex items-center justify-center"
     >
-      <span class="bg-grisLight px-2 -mt-3 text-xl text-gray-400"> 🔮 </span>
+      <span class="bg-grisLight px-2 mt-3 text-xl text-gray-400"> 🔮 </span>
     </div>
   </div>
 </template>
