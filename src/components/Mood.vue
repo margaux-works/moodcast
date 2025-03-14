@@ -16,7 +16,7 @@ const moods = ref([
   { name: 'Frustrated', emoji: '💢' },
   { name: 'Calm', emoji: '🌿' },
   { name: 'Energetic', emoji: '⚡' },
-  { name: 'Party Mood', emoji: '💃' },
+  { name: 'Party', emoji: '💃' },
   { name: 'Inspired', emoji: '🌠' },
   { name: 'Happy', emoji: '🌻' },
   { name: 'Restless', emoji: '🌪️' },
@@ -39,7 +39,7 @@ const selectMood = (mood) => {
     <p
       v-for="mood in moods"
       :key="mood.name"
-      class="border-1 border-green px-4 py-2 text-center rounded cursor-pointer transition-all duration-300"
+      class="border-1 border-green px-3 py-1 text-sm text-center rounded cursor-pointer transition-all duration-300 whitespace-nowrap"
       @click="selectMood(mood.name)"
       :class="{
         'bg-green text-[#202733]': selectedMood === mood.name,

@@ -68,7 +68,7 @@ watch(
 
 <template>
   <div
-    class="bg-grisLight text-white p-6 rounded-lg shadow-lg w-full max-w-2xl text-center mt-8 mx-auto justify-center min-h-[200px]"
+    class="bg-grisLight text-white p-6 rounded-lg shadow-lg w-full max-w-2xl text-center sm:mt-8 mx-auto justify-center min-h-[200px]"
   >
     <p class="text-md mb-4 text-center text-green uppercase tracking-widest">
       Suggestion of the Day
